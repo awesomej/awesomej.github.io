@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <titleTech Lead Talk</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P">
+    <link rel='stylesheet' type='text/css' media='screen' href='reveal/reveal.css'>
+    <link rel="stylesheet" type='text/css' media='screen' href="reveal/theme/black.css" id="theme">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section title="Welcome Slide">
+                <h2 style="color: #ffa100">WTF is a</h2>
+                <h1 style="font-size: 2em;">Tech Lead</h1>
+                <h4 style="color: #ffa100">How Burn Out Taught Me To Be A Better Lead</h3>
+            </section>
+            <section title="Introduction">
+                <h1>Introduction</h1>
+                <div class="introduction-grid">
+                    <div class="R1C0"><img src="img/character/Level-1_bob_facingx1000.gif" /></div>
+                    <div class="R1C1"><span class="grid-title">Team</span>Swordfish</div>
+                    <div class="R1C3"><span class="grid-title">Time at FanDuel</span>1.5 Yrs</div>
+                    <div class="R2C2"><span class="grid-title">Controversial Fact</span>I like puppet :/</div>
+                    <div class="R2C1"><span class="grid-title">Years Professional</span>18</div>
+                    <div class="R3C1"><span class="grid-title">Favourite City</span>Tokyo</div>
+                    <div class="R3C2"><span class="grid-title">Primary Language</span>Java</div>
+                    <div class="R3C3"><span class="grid-title">Currently Studying</span>React</div>
+                  </div>
+            </section>
+            <section title="Role Vote">
+                <div style="height: 600px;">
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = "JAXAXAXM2V4YCRPK2X31H9HF2NQM";
+        function initPoll(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "https://docs.pollsapi.com/api/create-poll");
+            xhttp.setRequestHeader("Content-type", "content-type: application/json");
+            xhttp.setRequestHeader("api-key", "content-type: application/json");
+            xhttp.send(`{
+                "question": "Do you like polls?",
+                "options": [
+                    {
+                    "text": "Yes"
+                    },
+                    {
+                    "text": "No"
+                    }
+                ]
+                }
+            `);
+        }
+    </script>
+    <script src='reveal/reveal.js'></script>
+    <script>
+    Reveal.initialize({
+				controls: false,
+				progress: true,
+				center: true,
+				hash: true,
+			});
+    </script>
+</body>
+</html>

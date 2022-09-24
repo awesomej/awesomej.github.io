@@ -1,0 +1,42 @@
+.introduction-grid {  display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "R1C0 R1C1 R1C1 R1C3"
+      "R1C0 R2C1 R2C2 R2C2"
+      "R1C0 R3C1 R3C2 R3C3";
+  }
+
+  .introduction-grid div {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    font-weight: 900 !important;
+  }
+
+  .introduction-grid div span {
+    display:block;
+    font-size: 0.5em;
+    font-weight: 200 !important;
+  }
+  
+  .R1C0 { grid-area: R1C0; padding: 0px !important; position: absolute; bottom: 0; text-align: center !important; line-height: 0 !important;}
+  .R1C0 img { margin: 0px; }
+
+  .R1C1 { grid-area: R1C1; background-color: #533462; }
+  
+  .R1C3 { grid-area: R1C3; background-color: #343778; }
+  
+  .R2C2 { grid-area: R2C2; background-color: #533462; }
+  
+  .R2C1 { grid-area: R2C1; background-color: #343778; }
+  
+  .R3C1 { grid-area: R3C1; background-color: #533462; }
+  
+  .R3C2 { grid-area: R3C2; background-color: #343778; }
+  
+  .R3C3 { grid-area: R3C3; background-color: #533462; }
+  
