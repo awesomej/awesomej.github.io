@@ -1,73 +1,205 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <titleTech Lead Talk</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P">
-    <link rel='stylesheet' type='text/css' media='screen' href='reveal/reveal.css'>
-    <link rel="stylesheet" type='text/css' media='screen' href="reveal/theme/black.css" id="theme">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/theme/white.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --r-background-color: /* off-white */
+                hsl(45, 100%, 98%);
+            --r-main-font: 'Crimson Pro', serif;
+            --r-heading-font: 'Crimson Pro', serif;
+            --r-heading-text-transform: none;
+            --r-fit-text-min-font-size: 20px;
+            --r-fit-text-max-font-size: 80px;
+            --r-block-margin: 0px;
+        }
+        h1, h2, h3, h4, h5, h6, p, li {
+            line-height: 1.5em;
+            margin: 0 0;
+        }
+        .small-text {
+            font-size: 0.5em;
+        }
+        .inline-emphasis {
+            font-style: italic;
+            text-decoration: underline;
+            color: chocolate;
+        }
+        .flipH {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            filter: FlipH;
+            -ms-filter: "FlipH";
+        }
+    </style>
+
+    <title>A Most Peculiar Incident</title>
 </head>
 <body>
     <div class="reveal">
-        <div class="slides">
-            <section title="Welcome Slide">
-                <h2 style="color: #ffa100">WTF is a</h2>
-                <h1 style="font-size: 2em;">Tech Lead</h1>
-                <h4 style="color: #ffa100">How Burn Out Taught Me To Be A Better Lead</h3>
-            </section>
-            <section title="Introduction">
-                <h1>Introduction</h1>
-                <div class="introduction-grid">
-                    <div class="R1C0"><img src="img/character/Level-1_bob_facingx1000.gif" /></div>
-                    <div class="R1C1"><span class="grid-title">Team</span>Swordfish</div>
-                    <div class="R1C3"><span class="grid-title">Time at FanDuel</span>1.5 Yrs</div>
-                    <div class="R2C2"><span class="grid-title">Controversial Fact</span>I like puppet :/</div>
-                    <div class="R2C1"><span class="grid-title">Years Professional</span>18</div>
-                    <div class="R3C1"><span class="grid-title">Favourite City</span>Tokyo</div>
-                    <div class="R3C2"><span class="grid-title">Primary Language</span>Java</div>
-                    <div class="R3C3"><span class="grid-title">Currently Studying</span>React</div>
-                  </div>
-            </section>
-            <section title="Role Vote">
-                <div style="height: 600px;">
-                    
+        <div class="slides"  style="text-align: left !important;">
+            <section data-transition="fade">
+                <div style="display: grid; grid-template-columns: 4fr 2fr; gap: 20px;">
+                    <div>
+                        <!-- Left column content -->
+                        <h1 style="font-size: 2em; line-height: 1em;">A Most Peculiar Incident</h1>
+                        <div style="width: 100%; text-align: right;">
+                            <p>Jack Talbot</p>
+                            <p class="small-text">November 2025</p>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Right column content -->
+                         <img src="img/server-fire.png" class="flipH" alt="Server Fire with Illustrative smoke" style="height: 300px; width: auto; margin-top: 75px;" />
+                    </div>
                 </div>
+            </section>
+            <section style="text-align: left;">
+                <h1 class="r-fit-text">Hello.</h1>
+            </section>
+            <section>
+                <h1>Once Upon a Time...</h1>
+            </section>
+            <section>
+                <h1>Actually,</h1>
+            </section>
+            <section>
+                <ul>
+                    <li>I like coffee <span class="fragment inline-emphasis">a lot!</span></li>
+                    <li class="fragment">I like to create <span class="fragment inline-emphasis">things.</span></li>
+                    <li class="fragment">I like to talk <span class="fragment inline-emphasis">a lot!</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Once Upon a Time...</h3>
+            </section>
+            <section>
+                <div style="display: grid; grid-template-columns: 2fr 4fr; gap: 20px;">
+                    <div>
+                        <img src="img/mocha-pot.png" alt="Mocha Pot" style="height: 400px; width: auto;" />
+                    </div>
+                    <div style="align-self: center;">
+                        <h3>I bought a mocha-pot.</h3>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <p>This is about learning - detail orientated and understanding</p>
+                </aside>
+            </section>
+            <section>
+                <h3>and so, off he <em>trundled</em>, a fresh cup of coffee in his hand.</h3>
+                <div style="text-align: center;">
+                    <img src="img/man-walk-coffee.png" alt="Man walking with a coffee" style="height: 200px; width: auto;" />
+                </div>
+            </section>
+            <section>
+                <div style="display: grid; grid-template-columns: 3fr 3fr; gap: 20px;">
+                    <div style="align-self: center;">
+                        <h3>I made a ukulele.</h3>
+                    </div>
+                    <div>
+                        <img src="img/ukelele.png" alt="Ukulele" style="height: 400px; width: auto;" />
+                    </div>
+                </div>
+                <aside class="notes">
+                    <p>This is about process, design, and craftsmanship.</p> 
+                </aside>
+            </section>
+            <section>
+                <h3>and so, once again, he <em>pootled</em> off into the night, ukulele under his arm.</h3>
+                <h3 style="text-align: right;"><em>Happy.</em></h3>
+                <div style="text-align: center;">
+                    <img src="img/man-walk-ukelele.png" alt="Man walking with a ukulele" style="height: 200px; width: auto;" />
+                </div>
+            </section>
+            <section data-transition="slide-in fade-out" style="text-align: center;">
+                <img src="img/talk.png" alt="Talking" style="height: 300px; width: auto; margin-bottom: -50px;" />
+                <h3>I said <em>something</em> stupid!</h3>
+                <aside class="notes">
+                    <p>This is about process, design, and craftsmanship.</p> 
+                </aside>
+            </section>
+            <section data-transition="fade-in" style="text-align: center;">
+                <img src="img/talk.png" alt="Talking" style="height: 300px; width: auto; margin-bottom: -50px;" />
+                <h3>I said <em>several</em> stupid things!</h3>
+                <aside class="notes">
+                    <p>This is about communication and leadership.</p> 
+                </aside>
+            </section>
+            <section>
+                <h3>and so, he went on his <em>merry way</em>, toing and froing through life.</h3>
+                <div style="text-align: center;">
+                    <img src="img/man-walk-talk.png" alt="Man walking while talking" style="height: 200px; width: auto;" />
+                </div>
+            </section>
+            <section>
+                <h2>Until one day, he caused a <em>multi-million pound</em> production incident.</h2>
+            </section>
+            <section>
+                <h3>Except, he didn't...</h3>
+                <h2 class="fragment" style="text-align: right;">it just felt like he did.</h2>
+            </section>
+            <section>
+                <div style="display: grid; grid-template-columns: 4fr 2fr; gap: 20px;">
+                    <div>
+                        <!-- Left column content -->
+                        <h3 style="font-size: 2em; line-height: 1em;">A Most Peculiar Incident</h3>
+                    </div>
+                    <div>
+                        <!-- Right column content -->
+                        <img src="img/server-fire-smoke.png" class="flipH" alt="Server Fire with Smoke" style="height: 300px; width: auto; margin-top: 75px;" />
+
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>and so, he found himself lost, unable to see the path ahead.</h3>
+            </section>
+            <section>
+                <h2>Once upon a time...</h2>
+                <h3 style="width: 90%;">there was a man who didn't know he liked coffee, was just starting to create things, and he kept putting his foot in his mouth,</h3>
+                <h3 style="width: 90%; text-align: right; margin: auto;">and on one unremarkable Tuesday,<br/>his world <em>burned down.</em></h3>
+            </section>
+            <section>
+                <h3>and so, you're probably thinking, what is the point in all of this?</h3>
+            </section>
+            <section style="text-align: center;">
+                <h3>programming != engineering != leadership</h3>
+            </section>
+            <section>
+                <div style="display: grid; grid-template-columns: 8fr 4fr; gap: 0px;">
+                    <div style="align-self: center;">
+                        <!-- Left column content -->
+                        <p class="r-fit-text">mocha-pot + ukulele + foot-in-mouth = ?</p>
+                    </div>
+                    <div>
+                        <!-- Right column content -->
+                        <img src="img/mochapot-ukelele-server.png" class="flipH" alt="Server with a Mocha Pot and Ukelele resting against" style="height: auto; width: auto;" />
+
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>The End.</h2>
+                <h4 style="font-style: italic;">jack@itsajackthing.co.uk</h4>
             </section>
         </div>
     </div>
-
-    <script>
-        const apiKey = "JAXAXAXM2V4YCRPK2X31H9HF2NQM";
-        function initPoll(){
-            const xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "https://docs.pollsapi.com/api/create-poll");
-            xhttp.setRequestHeader("Content-type", "content-type: application/json");
-            xhttp.setRequestHeader("api-key", "content-type: application/json");
-            xhttp.send(`{
-                "question": "Do you like polls?",
-                "options": [
-                    {
-                    "text": "Yes"
-                    },
-                    {
-                    "text": "No"
-                    }
-                ]
-                }
-            `);
-        }
-    </script>
-    <script src='reveal/reveal.js'></script>
-    <script>
-    Reveal.initialize({
-				controls: false,
-				progress: true,
-				center: true,
-				hash: true,
-			});
-    </script>
+    <script src="https://unpkg.com/reveal.js@4.4.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.4.0/plugin/markdown/markdown.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.4.0/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.4.0/plugin/highlight/highlight.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
