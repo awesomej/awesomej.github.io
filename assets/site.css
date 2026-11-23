@@ -4,6 +4,16 @@
     --acid: #dfff00;
     --line: rgba(23, 34, 28, 0.22);
     --muted: #657069;
+    --muted-on-ink: #bec7c1;
+    --sage: #587162;
+    --olive: #98b000;
+    --olive-strong: #6b7b00;
+    --label-size: 0.72rem;
+}
+
+::selection {
+    color: var(--ink);
+    background: var(--acid);
 }
 
 * {
@@ -19,9 +29,7 @@ body {
     margin: 0;
     color: var(--ink);
     font-family: "Newsreader", Georgia, serif;
-    background:
-        linear-gradient(90deg, transparent calc(50% - 0.5px), var(--line) 50%, transparent calc(50% + 0.5px)),
-        var(--paper);
+    background: var(--paper);
 }
 
 a {
@@ -42,7 +50,7 @@ footer {
     padding: 28px 0;
     border-bottom: 1px solid var(--line);
     font-family: "DM Mono", monospace;
-    font-size: 0.72rem;
+    font-size: var(--label-size);
     line-height: 1.5;
     text-transform: uppercase;
 }
@@ -50,6 +58,7 @@ footer {
 .site-header p {
     margin: 0;
     text-align: right;
+    text-wrap: balance;
 }
 
 .wordmark {
@@ -60,7 +69,7 @@ footer {
 }
 
 .wordmark span {
-    color: #98b000;
+    color: var(--olive);
 }
 
 main {
@@ -85,7 +94,7 @@ footer {
 .eyebrow {
     grid-column: 1 / -1;
     margin: 0 0 clamp(48px, 7vw, 88px);
-    font-size: 0.72rem;
+    font-size: var(--label-size);
 }
 
 h1 {
@@ -100,7 +109,7 @@ h1 {
 h1 em {
     display: inline-block;
     margin-left: 28%;
-    color: #587162;
+    color: var(--sage);
     font-weight: 300;
 }
 
@@ -121,7 +130,7 @@ h1 em {
     justify-content: space-between;
     align-items: baseline;
     padding: 18px 0 14px;
-    font-size: 0.68rem;
+    font-size: var(--label-size);
 }
 
 .section-heading h2 {
@@ -142,9 +151,10 @@ h1 em {
     min-height: 225px;
     padding: 28px 24px 30px 0;
     overflow: hidden;
+    isolation: isolate;
     border-top: 1px solid var(--line);
     text-decoration: none;
-    transition: color 220ms ease, padding 220ms ease;
+    transition: color 220ms ease;
 }
 
 .talk::before {
@@ -159,8 +169,17 @@ h1 em {
 
 .talk:hover,
 .talk:focus-visible {
-    padding-left: 24px;
     color: var(--paper);
+}
+
+.talk-number,
+.talk-copy {
+    transition: transform 350ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.talk:hover :is(.talk-number, .talk-copy),
+.talk:focus-visible :is(.talk-number, .talk-copy) {
+    transform: translateX(var(--talk-shift, 24px));
 }
 
 .talk:hover::before,
@@ -169,14 +188,13 @@ h1 em {
 }
 
 .talk:focus-visible {
-    outline: 3px solid #849800;
+    outline: 3px solid var(--olive-strong);
     outline-offset: 3px;
 }
 
-.talk-number,
-.talk-arrow {
+.talk-number {
     font-family: "DM Mono", monospace;
-    font-size: 0.72rem;
+    font-size: var(--label-size);
 }
 
 .talk-copy {
@@ -185,12 +203,14 @@ h1 em {
     gap: 8px;
 }
 
-.talk-copy strong {
+.talk-copy h3 {
     max-width: 950px;
+    margin: 0;
     font-size: clamp(2.4rem, 6vw, 5.8rem);
     font-weight: 300;
     line-height: 0.92;
     letter-spacing: -0.045em;
+    text-wrap: balance;
 }
 
 .talk-copy > span:last-child {
@@ -200,9 +220,9 @@ h1 em {
     font-size: 1.1rem;
 }
 
-.talk:hover .talk-copy > span:last-child,
-.talk:focus-visible .talk-copy > span:last-child {
-    color: #bec7c1;
+.talk:hover :is(.status, .talk-copy > span:last-child),
+.talk:focus-visible :is(.status, .talk-copy > span:last-child) {
+    color: var(--muted-on-ink);
 }
 
 .status {
@@ -211,19 +231,19 @@ h1 em {
     gap: 8px;
     min-height: 18px;
     color: var(--muted);
-    font-size: 0.65rem;
+    font-size: var(--label-size);
 }
 
 .status i {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #98b000;
+    background: var(--olive);
     box-shadow: 0 0 0 4px rgba(152, 176, 0, 0.15);
 }
 
 .talk-arrow {
-    font-size: 1.25rem;
+    margin-top: 2px;
     transition: transform 220ms ease;
 }
 
@@ -237,7 +257,7 @@ footer {
     justify-content: space-between;
     padding: 25px 0 36px;
     border-top: 1px solid var(--ink);
-    font-size: 0.65rem;
+    font-size: var(--label-size);
 }
 
 footer p {
@@ -245,18 +265,10 @@ footer p {
 }
 
 @media (max-width: 760px) {
-    body {
-        background: var(--paper);
-    }
-
     .site-header,
     main,
     footer {
         width: min(100% - 32px, 1280px);
-    }
-
-    .site-header p {
-        max-width: 200px;
     }
 
     main {
@@ -290,14 +302,10 @@ footer p {
         gap: 10px;
         min-height: 190px;
         padding-right: 4px;
+        --talk-shift: 10px;
     }
 
-    .talk:hover,
-    .talk:focus-visible {
-        padding-left: 10px;
-    }
-
-    .talk-copy strong {
+    .talk-copy h3 {
         font-size: clamp(2.25rem, 12vw, 4rem);
     }
 
