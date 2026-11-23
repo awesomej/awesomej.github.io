@@ -1,0 +1,10 @@
+name = "observability-anam"
+main = "worker.js"
+compatibility_date = "2026-09-14"
+
+[vars]
+# Set this to the exact GitHub Pages origin, for example https://awesomej.github.io
+ALLOWED_ORIGIN = "https://awesomej.github.io"
+
+# Add ANAM_LLM_ID, each role's AVATAR_ID and VOICE_ID as Worker variables.
+# Add ANAM_API_KEY with: npx wrangler secret put ANAM_API_KEY

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Observability — a talk by Jack Talbot.">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Newsreader:opsz,wght@6..72,300;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <title>Observability — Jack Talbot</title>
+</head>
+<body>
+    <a class="back-link" href="../">← All talks</a>
+    <div class="reveal">
+        <div class="slides">
+            <section class="title-slide">
+                <p class="kicker">A talk by Jack Talbot</p>
+                <h1>Observability<span>.</span></h1>
+                <p class="subtitle">Seeing the system<br>you actually have.</p>
+                <p class="date">2026</p>
+                <aside class="notes">This is an interactive scenario. The live meeting slides use Anam avatars and your microphone.</aside>
+            </section>
+
+            <section class="speaker-intro-slide">
+                <p class="kicker">A quick introduction</p>
+                <h2>Hello. I’m Jack.</h2>
+                <p>I’m a Principal Engineer. I spend a lot of time thinking about how software connects to the outcomes people care about.</p>
+                <aside class="notes">Keep this brief. Introduce yourself, then move straight into the coffee story.</aside>
+            </section>
+
+            <section class="coffee-intro-slide">
+                <div class="coffee-intro-copy">
+                    <p class="kicker">A familiar place to start</p>
+                    <h2>I like coffee,<br><em>I’m pretty sure I’ve told you that before.</em></h2>
+                    <p>I once bought a moka pot just to understand it better.</p>
+                </div>
+                <figure class="coffee-morph">
+                    <div class="coffee-art">
+                        <img class="coffee-pot" src="../a-most-peculiar-incident/img/mocha-pot.png" alt="A hand-drawn moka pot">
+                        <img class="coffee-logo fragment" data-fragment-index="0" src="img/starbucks-logo.png" alt="Starbucks logo">
+                    </div>
+                    <figcaption>
+                        <span class="coffee-caption-before">Previously, in A Most Peculiar Incident…</span>
+                        <span class="coffee-caption-after fragment" data-fragment-index="0">Next stop: Starbucks</span>
+                    </figcaption>
+                </figure>
+                <aside class="notes">This is a callback to A Most Peculiar Incident: “I like coffee a lot” and “I bought a mocha-pot.” Advance once to glitch the moka pot into the Starbucks logo, then advance again to begin the Starbucks story.</aside>
+            </section>
+
+            <section id="starbucks-hidden-queue" class="starbucks-slide starbucks-queue-slide" data-starbucks-ambience>
+                <p class="kicker">08:17 / On the way to work</p>
+                <div class="starbucks-queue-copy">
+                    <h2>You’re next.<br></h2>
+                </div>
+                <div class="starbucks-orders" aria-label="Orders arriving through four channels">
+                    <div class="counter-order"><span>At the counter</span><strong>2 orders ahead</strong></div>
+                    <div class="fragment"><span>Drive-thru</span><strong>Still moving</strong></div>
+                    <div class="fragment"><span>Mobile pickup</span><strong>6 drinks arrive</strong></div>
+                    <div class="fragment"><span>Delivery</span><strong>A rider is waiting</strong></div>
+                </div>
+                <p class="fragment starbucks-punchline">How long are you going to make me wait for a coffee?!</p>
+                <aside class="notes">Let the coffeehouse ambience establish the scene. Ask the room whether they have experienced this. Reveal the unseen orders one at a time. The YouTube ambience starts automatically on entry and stops on exit.</aside>
+            </section>
+
+            <section class="starbucks-slide starbucks-scale-slide">
+                <p class="kicker">The problem at scale</p>
+                <h2>Now multiply that by more than <em>30,000 stores.</em></h2>
+                <div class="starbucks-scale-copy">
+                    <p>In one coffee shop, a manager can watch it happen.</p>
+                    <p>Across thousands of stores, Starbucks has to find the pattern in the data.</p>
+                </div>
+                <div class="order-trail" aria-label="The data trail left by an order">
+                    <p><span>Where did it come from?</span><strong>Café · drive-thru · mobile · delivery</strong></p>
+                    <p><span>When did it arrive?</span><strong>08:17</strong></p>
+                    <p><span>When was it ready?</span><strong>08:29</strong></p>
+                    <p><span>What else was happening?</span><strong>Morning rush · mobile surge</strong></p>
+                </div>
+                <aside class="notes">The order data turns a feeling in one store into a pattern Starbucks can find across the business. Starbucks and Microsoft described connecting equipment across 30,000 stores in 2019: https://news.microsoft.com/source/features/digital-transformation/starbucks-turns-to-technology-to-brew-up-a-more-personal-connection-with-its-customers/</aside>
+            </section>
+
+            <section class="starbucks-slide starbucks-smart-slide">
+                <p class="kicker">See it · change it · check it</p>
+                <h2>Starbucks changed<br><em>the queue.</em></h2>
+                <p class="smart-queue-explainer">Smart Queue balances café, drive-thru, mobile and delivery orders around what each store can actually make.</p>
+                <div class="smart-queue-questions">
+                    <p><span>01</span><strong>Are people waiting less?</strong></p>
+                    <p><span>02</span><strong>Is one group still losing out?</strong></p>
+                    <p><span>03</span><strong>Does it still work in the morning rush?</strong></p>
+                </div>
+                <blockquote>See what customers are experiencing. Change something. Check whether it helped.</blockquote>
+                <aside class="notes">Starbucks says Smart Queue sequences café, drive-thru, mobile and delivery orders. Scheduled pickup times use real-time store availability. Sources: https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Is-Back-Turning-Momentum-Into-Long-Term-Sustainable-Growth/default.aspx and https://about.starbucks.com/press/2026/making-it-easier-to-plan-your-starbucks-visit/</aside>
+            </section>
+
+            <section class="statement-slide">
+                <p class="kicker">The question we usually ask</p>
+                <h2>Is our system<br><em>working?</em></h2>
+            </section>
+
+            <section class="statement-slide">
+                <p class="kicker">The question the business needs answered</p>
+                <h2>Is the customer journey working—and can we explain <em>why</em> when it isn’t?</h2>
+            </section>
+
+            <section class="deposit-intro-slide">
+                <p class="kicker">A worked example</p>
+                <h2>The Deposit<br><em>Problem.</em></h2>
+                <p>One number has moved. Nobody can explain why.</p>
+                <aside class="notes">Pause here to mark the start of the main scenario. The next slide introduces the reported movement.</aside>
+            </section>
+
+            <section class="metric-slide">
+                <p class="kicker">09:02 / Monday morning</p>
+                <div class="metric-pair">
+                    <div><span>Deposits / last month</span><strong>180m</strong></div>
+                    <i>→</i>
+                    <div class="fragment"><span>Deposits / this month</span><strong>150m</strong><small>−16.7%</small></div>
+                </div>
+                <p class="fragment metric-question">Thirty million fewer deposits were made.</p>
+            </section>
+
+            <section id="coo-call" class="meeting-slide" data-persona="coo" data-call-return="calendar-reaction">
+                <div class="call-heading">
+                    <div><p class="kicker">09:05 / Executive meeting</p><h2>Maya Anand</h2><p>Chief Operating Officer</p></div>
+                    <span class="call-status" data-call-status>Ready to join</span>
+                </div>
+                <div class="meeting-window">
+                    <div class="avatar-stage">
+                        <video id="anam-video-coo" autoplay playsinline></video>
+                        <div class="avatar-placeholder"><span>MA</span><p>Camera ready</p></div>
+                    </div>
+                    <div class="meeting-copy">
+                        <blockquote>“Deposits are down significantly compared with last month. We need to understand why.”</blockquote>
+                        <div class="self-view"><span>JT</span><p>Jack Talbot<small>Principal Engineer</small></p></div>
+                        <div class="call-actions"><button type="button" class="join-call" data-start-call>Start live meeting</button><button type="button" class="end-call" data-end-call disabled>End meeting</button></div>
+                        <p class="call-error" data-call-error></p>
+                    </div>
+                </div>
+                <aside class="notes">Let the audience hear the original question. Ask Maya what has already been ruled out, then end the meeting.</aside>
+            </section>
+
+            <section id="calendar-reaction" class="calendar-slide reaction-slide" data-reaction="calendar">
+                <div class="reaction-heading">
+                    <div><p class="kicker">Wednesday / 09:14</p><h2>Your week<br><em>just changed.</em></h2></div>
+                    <div class="calendar-legend"><span></span> Now</div>
+                </div>
+                <div class="week-calendar" aria-label="Work week calendar">
+                    <div class="week-header"><span></span><b>Mon<small>14</small></b><b>Tue<small>15</small></b><b class="is-today">Wed<small>16</small></b><b>Thu<small>17</small></b><b>Fri<small>18</small></b></div>
+                    <div class="week-body">
+                        <div class="time-rail"><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span><span>15:00</span><span>16:00</span></div>
+                        <div class="day-column"><div class="existing-event" style="--top:8%;--height:9%">AI Strategy</div><div class="existing-event" style="--top:30%;--height:8%">Team 1:1</div><div class="existing-event" style="--top:64%;--height:10%">Platform Architecture</div></div>
+                        <div class="day-column"><div class="existing-event" style="--top:16%;--height:8%">Delivery Review</div><div class="existing-event" style="--top:42%;--height:9%">Research Readout</div><div class="existing-event" style="--top:78%;--height:9%">Focus Time</div></div>
+                        <div class="day-column today-column">
+                            <div class="now-line"><i></i></div>
+                            <div class="existing-event" style="--top:5%;--height:8%">COO / deposit decline</div>
+                            <div class="incoming-event" data-sequence="1" style="--top:17%;--height:11%"><b>Deposit journey</b><small>Theo + 3</small></div>
+                            <div class="incoming-event" data-sequence="6" style="--top:42%;--height:12%"><b>Platform health</b><small>Sam + Payments</small></div>
+                            <div class="existing-event" style="--top:58%;--height:8%">Design Crit</div>
+                            <div class="incoming-event urgent" data-sequence="11" style="--top:70%;--height:14%"><b>Approval analysis</b><small>War room · 12 invited</small></div>
+                        </div>
+                        <div class="day-column"><div class="existing-event" style="--top:8%;--height:8%">AI Strategy</div><div class="incoming-event urgent" data-sequence="5" style="--top:20%;--height:10%"><b>Commercial movement</b><small>Leni / Finance</small></div><div class="existing-event" style="--top:38%;--height:9%">Security Review</div><div class="incoming-event" data-sequence="9" style="--top:54%;--height:11%"><b>Provider escalation</b><small>External</small></div><div class="incoming-event" data-sequence="13" style="--top:76%;--height:9%"><b>Follow-up: deposits</b><small>Leadership</small></div></div>
+                        <div class="day-column"><div class="incoming-event" data-sequence="3" style="--top:12%;--height:10%"><b>Exec readout</b><small>Maya + 7</small></div><div class="existing-event" style="--top:31%;--height:8%">Platform Architecture</div><div class="incoming-event urgent" data-sequence="8" style="--top:47%;--height:12%"><b>Deposit deep-dive</b><small>Product + Engineering</small></div><div class="existing-event" style="--top:70%;--height:8%">Weekly Wrap</div></div>
+                    </div>
+                </div>
+                <div class="toast-stack calendar-toasts" aria-live="polite">
+                    <div class="notification outlook-toast" data-sequence="2"><span class="outlook-mark">O</span><p><b>Meeting invitation</b><small>Deposit journey · 09:20</small></p></div>
+                    <div class="notification slack-toast" data-sequence="4"><span class="slack-mark">✣</span><p><b>Theo Chen</b><small>Jack, are you free right now?</small></p></div>
+                    <div class="notification outlook-toast" data-sequence="5"><span class="outlook-mark">O</span><p><b>Meeting updated</b><small>Commercial movement · Urgent</small></p></div>
+                    <div class="notification slack-toast" data-sequence="7"><span class="slack-mark">✣</span><p><b>Sam Rivera</b><small>Adding the payments team…</small></p></div>
+                    <div class="notification slack-toast" data-sequence="10"><span class="slack-mark">✣</span><p><b>#deposit-incident</b><small>Leni added you to the channel</small></p></div>
+                    <div class="notification outlook-toast" data-sequence="12"><span class="outlook-mark">O</span><p><b>3 new invitations</b><small>Your afternoon is filling up</small></p></div>
+                </div>
+            </section>
+
+            <section id="slack-reaction" class="slack-reaction-slide reaction-slide" data-reaction="slack">
+                <div class="slack-shell">
+                    <aside class="slack-sidebar">
+                        <div class="workspace-name">FinServe <span>⌄</span></div>
+                        <p>Channels</p>
+                        <div class="channel active"># deposit-incident <i>18</i></div>
+                        <div class="channel incoming-row" data-sequence="2"># tmp-deposit-analysis <i>new</i></div>
+                        <div class="channel incoming-row" data-sequence="6"># tmp-provider-escalation <i>new</i></div>
+                        <div class="channel incoming-row" data-sequence="10"># tmp-exec-readout <i>new</i></div>
+                        <p>Direct messages</p>
+                        <div class="dm incoming-row" data-sequence="3"><span class="presence"></span> Maya Anand <i>2</i></div>
+                        <div class="dm incoming-row" data-sequence="7"><span class="presence"></span> Theo Chen <i>4</i></div>
+                        <div class="dm incoming-row" data-sequence="12"><span class="presence away"></span> Sam Rivera <i>1</i></div>
+                    </aside>
+                    <div class="slack-conversation">
+                        <header><div><b># deposit-incident</b><small>19 members · Created 4 minutes ago</small></div><span>⌕ &nbsp; ⓘ</span></header>
+                        <div class="message-stream">
+                            <article class="slack-message incoming-row" data-sequence="1"><span class="avatar maya">MA</span><p><b>Maya Anand <small>09:15</small></b>Adding everyone here. We need an answer before the noon update.</p></article>
+                            <article class="slack-message incoming-row" data-sequence="4"><span class="avatar theo">TC</span><p><b>Theo Chen <small>09:15</small></b>Volumes look normal at the top of the funnel. Pulling the journey cuts now.</p></article>
+                            <article class="slack-message thread-reply incoming-row" data-sequence="5"><span></span><p><b>Leni Okafor <small>09:16</small></b>Is that starts or completed deposits?</p></article>
+                            <article class="slack-message incoming-row" data-sequence="8"><span class="avatar sam">SR</span><p><b>Sam Rivera <small>09:16</small></b>No incidents. APIs are green and latency is within SLO.</p></article>
+                            <article class="slack-message thread-reply incoming-row" data-sequence="9"><span></span><p><b>Theo Chen <small>09:16</small></b>That doesn't match what customers are doing.</p></article>
+                            <article class="slack-message incoming-row" data-sequence="11"><span class="avatar leni">LO</span><p><b>Leni Okafor <small>09:17</small></b>Finance needs a reconciled number. I have three different answers already.</p></article>
+                            <article class="slack-message incoming-row" data-sequence="13"><span class="avatar maya">MA</span><p><b>Maya Anand <small>09:17</small></b><strong>@Jack can you join the dots?</strong></p></article>
+                        </div>
+                        <footer><span>＋</span><p>Message #deposit-incident</p><span>☺︎</span></footer>
+                    </div>
+                </div>
+                <div class="toast-stack slack-overflow" aria-live="polite">
+                    <div class="notification slack-toast" data-sequence="5"><span class="slack-mark">✣</span><p><b>Maya sent you a message</b><small>Can we get to root cause today?</small></p></div>
+                    <div class="notification slack-toast" data-sequence="9"><span class="slack-mark">✣</span><p><b>#tmp-deposit-analysis</b><small>7 unread messages</small></p></div>
+                    <div class="notification slack-toast" data-sequence="14"><span class="slack-mark">✣</span><p><b>Mentions & reactions</b><small>5 new mentions</small></p></div>
+                </div>
+            </section>
+
+            <section id="choose-call" class="choose-slide">
+                <div class="choice-heading"><p class="kicker">09:18 / Where do we look first?</p><h2>Choose your<br><em>next conversation.</em></h2><p>Ask the room. Pick a perspective.</p></div>
+                <nav class="persona-choices" aria-label="Choose the next conversation">
+                    <a href="#/product-call" data-choice="product-call"><span class="choice-number">1</span><span class="choice-avatar theo">TC</span><b>Theo Chen</b><small>Product · customer journey</small><i>Follow the funnel →</i></a>
+                    <a href="#/commercial-call" data-choice="commercial-call"><span class="choice-number">2</span><span class="choice-avatar leni">LO</span><b>Leni Okafor</b><small>Finance · commercial movement</small><i>Follow the money →</i></a>
+                    <a href="#/engineering-call" data-choice="engineering-call"><span class="choice-number">3</span><span class="choice-avatar sam">SR</span><b>Sam Rivera</b><small>Engineering · platform health</small><i>Follow the systems →</i></a>
+                </nav>
+                <p class="choice-skip">NEXT <span>→</span> Continue past conversations</p>
+            </section>
+
+            <section id="product-call" class="meeting-slide" data-persona="product" data-call-return="choose-call">
+                <div class="call-heading"><div><p class="kicker">09:20 / Product</p><h2>Theo Chen</h2><p>Head of Product / Deposit journeys</p></div><span class="call-status" data-call-status>Ready to join</span></div>
+                <div class="meeting-window">
+                    <div class="avatar-stage"><video id="anam-video-product" autoplay playsinline></video><div class="avatar-placeholder"><span>TC</span><p>Camera ready</p></div></div>
+                    <div class="meeting-copy"><p class="meeting-topic">Deposit journey</p><div class="self-view"><span>JT</span><p>Jack Talbot<small>Principal Engineer</small></p></div><div class="call-actions"><button type="button" class="join-call" data-start-call>Start live meeting</button><button type="button" class="end-call" data-end-call disabled>End meeting</button></div><p class="call-error" data-call-error></p></div>
+                </div>
+                <aside class="notes">Theo is bounded to Product evidence and should not know the provider is responsible. Ask whether fewer customers started, whether the UX changed, and where the funnel changes.</aside>
+            </section>
+
+            <section id="commercial-call" class="meeting-slide" data-persona="commercial" data-call-return="choose-call">
+                <div class="call-heading"><div><p class="kicker">09:55 / Commercial</p><h2>Leni Okafor</h2><p>Commercial Finance Director</p></div><span class="call-status" data-call-status>Ready to join</span></div>
+                <div class="meeting-window">
+                    <div class="avatar-stage"><video id="anam-video-commercial" autoplay playsinline></video><div class="avatar-placeholder"><span>LO</span><p>Camera ready</p></div></div>
+                    <div class="meeting-copy"><p class="meeting-topic">Commercial movement</p><div class="self-view"><span>JT</span><p>Jack Talbot<small>Principal Engineer</small></p></div><div class="call-actions"><button type="button" class="join-call" data-start-call>Start live meeting</button><button type="button" class="end-call" data-end-call disabled>End meeting</button></div><p class="call-error" data-call-error></p></div>
+                </div>
+                <aside class="notes">Leni knows the commercial cuts but not the technical cause. Ask about customer numbers, seasonality, marketing activity and whether the fall could be reporting noise.</aside>
+            </section>
+
+            <section id="engineering-call" class="meeting-slide" data-persona="engineering" data-call-return="choose-call">
+                <div class="call-heading"><div><p class="kicker">10:30 / Engineering</p><h2>Sam Rivera</h2><p>Director of Engineering / Payments</p></div><span class="call-status" data-call-status>Ready to join</span></div>
+                <div class="meeting-window">
+                    <div class="avatar-stage"><video id="anam-video-engineering" autoplay playsinline></video><div class="avatar-placeholder"><span>SR</span><p>Camera ready</p></div></div>
+                    <div class="meeting-copy"><p class="meeting-topic">Platform health</p><div class="self-view"><span>JT</span><p>Jack Talbot<small>Principal Engineer</small></p></div><div class="call-actions"><button type="button" class="join-call" data-start-call>Start live meeting</button><button type="button" class="end-call" data-end-call disabled>End meeting</button></div><p class="call-error" data-call-error></p></div>
+                </div>
+                <aside class="notes">The telemetry genuinely says the platform worked. Ask about deployments, provider availability, error rates, and exactly what Engineering counts as success.</aside>
+            </section>
+
+            <section id="evidence" class="evidence-slide">
+                <p class="kicker">11:05 / Join the evidence</p>
+                <h2>Same attempts.<br><em>Different outcome.</em></h2>
+                <div class="evidence-table">
+                    <div><span>Deposit attempts</span><strong>214m</strong><i>→</i><strong>215m</strong><small>Stable</small></div>
+                    <div><span>Technical responses</span><strong>99.92%</strong><i>→</i><strong>99.91%</strong><small>Stable</small></div>
+                    <div class="fragment evidence-reveal"><span>Provider approvals</span><strong>84.1%</strong><i>→</i><strong>69.8%</strong><small>−14.3pt</small></div>
+                </div>
+                <p class="fragment provider-note">The payment provider changed its fraud approval behaviour. More legitimate deposits are now being declined.</p>
+            </section>
+
+            <section class="quote-slide">
+                <h2>The system was observable.<br><em>The business journey wasn’t.</em></h2>
+            </section>
+
+            <section class="chain-slide">
+                <p class="kicker">Follow the thread</p>
+                <div class="signal-chain">
+                    <div>Business<br>outcome</div><i>→</i><div>Customer<br>journey</div><i>→</i><div>Product<br>behaviour</div><i>→</i><div>Engineering<br>systems</div><i>→</i><div>External<br>dependencies</div>
+                </div>
+                <p class="fragment">Observability is not just inspecting each box. It is being able to explain the connection between them.</p>
+            </section>
+
+            <section class="heart-slide heart-intro-slide">
+                <p class="kicker">A user-centred definition of success</p>
+                <h2>HEART</h2>
+                <div class="heart-row" aria-label="The five HEART dimensions">
+                    <div class="fragment"><b>H</b><span>Happiness</span></div>
+                    <div class="fragment"><b>E</b><span>Engagement</span></div>
+                    <div class="fragment"><b>A</b><span>Adoption</span></div>
+                    <div class="fragment"><b>R</b><span>Retention</span></div>
+                    <div class="fragment"><b>T</b><span>Task success</span></div>
+                </div>
+                <p class="fragment heart-definition">A framework for choosing measures around the people using a product.</p>
+                <aside class="notes">Introduce HEART as five lenses for defining user success. The framework came from Google. You do not need a metric for every letter in every product. Use the five dimensions to expose blind spots before choosing the measures that matter.</aside>
+            </section>
+
+            <section class="heart-why-slide">
+                <p class="kicker">Why HEART matters</p>
+                <h2>A healthy system can still fail the customer.</h2>
+                <div class="heart-contrast">
+                    <div>
+                        <span>System health tells us</span>
+                        <strong>The request completed.<br>The service stayed within its SLO.</strong>
+                    </div>
+                    <div class="fragment">
+                        <span>HEART asks</span>
+                        <strong>Did people succeed?<br>Did they come back?<br>How did the experience feel?</strong>
+                    </div>
+                </div>
+                <p class="fragment heart-why-point">It makes the customer outcome part of the observable system.</p>
+                <aside class="notes">The framework expands the definition of working. Technical telemetry remains necessary, but it cannot tell us whether the person achieved what they came to do. HEART gives Product, Engineering and the business a shared vocabulary for that outcome.</aside>
+            </section>
+
+            <section class="heart-case-slide heart-starbucks-slide">
+                <p class="kicker">HEART / The Starbucks problem</p>
+                <h2>The queue works only if the wait works for customers.</h2>
+                <div class="heart-measures" aria-label="HEART measures for the Starbucks queue">
+                    <div class="fragment"><b>H</b><span>Happiness</span><strong>How fair did the wait feel?</strong></div>
+                    <div class="fragment"><b>E</b><span>Engagement</span><strong>How often do people order?</strong></div>
+                    <div class="fragment"><b>A</b><span>Adoption</span><strong>Who tries each ordering channel?</strong></div>
+                    <div class="fragment"><b>R</b><span>Retention</span><strong>Do people return after a long wait?</strong></div>
+                    <div class="fragment"><b>T</b><span>Task success</span><strong>Was the order ready when promised?</strong></div>
+                </div>
+                <p class="fragment heart-case-point">Smart Queue changes the operation. HEART checks whether customers experience the improvement.</p>
+                <aside class="notes">Return to the opening story. Queue throughput alone can improve while one ordering channel still loses out. HEART turns the broad goal into questions Starbucks can observe across channels and stores. These are example measures, not claims about Starbucks' internal scorecard.</aside>
+            </section>
+
+            <section class="heart-case-slide heart-deposit-slide">
+                <p class="kicker">HEART / The Deposit problem</p>
+                <h2>“Success” has to reach the completed deposit.</h2>
+                <div class="heart-measures" aria-label="HEART measures for the deposit journey">
+                    <div class="fragment"><b>H</b><span>Happiness</span><strong>Do customers trust the journey?</strong></div>
+                    <div class="fragment"><b>E</b><span>Engagement</span><strong>How often do active customers deposit?</strong></div>
+                    <div class="fragment"><b>A</b><span>Adoption</span><strong>Do new customers make a first deposit?</strong></div>
+                    <div class="fragment"><b>R</b><span>Retention</span><strong>Do depositors return next month?</strong></div>
+                    <div class="fragment heart-task"><b>T</b><span>Task success</span><strong>Was a legitimate deposit approved and completed?</strong></div>
+                </div>
+                <p class="fragment heart-case-point"><strong>Guardrail:</strong> approval cannot rise by letting more fraud through.</p>
+                <aside class="notes">The missing signal sits inside Task success. Engineering observed a valid provider response, but the customer needed an approved and completed deposit. Keep the fraud measure beside the success measure as a guardrail. A higher approval rate would not count as success if fraud also rose.</aside>
+            </section>
+
+            <section class="final-slide">
+                <p class="kicker">The question to take away</p>
+                <h2>We are responsible for significant business outcomes.</h2>
+                <h3>How does that differ to owning software systems?</h3>
+            </section>
+        </div>
+    </div>
+    <div class="youtube-audio" aria-hidden="true">
+        <iframe
+            id="starbucks-ambience-player"
+            title="Starbucks coffeehouse ambience audio"
+            src="https://www.youtube.com/embed/GeCF2AoqTg8?enablejsapi=1&autoplay=1&mute=1&controls=0&disablekb=1&loop=1&playlist=GeCF2AoqTg8&playsinline=1"
+            allow="autoplay"
+            tabindex="-1">
+        </iframe>
+    </div>
+    <script src="https://unpkg.com/reveal.js@4.4.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.4.0/plugin/notes/notes.js"></script>
+    <script src="config.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
