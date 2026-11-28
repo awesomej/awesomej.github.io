@@ -42,9 +42,12 @@
             filter: FlipH;
             -ms-filter: "FlipH";
         }
+        /* Slides are isolated stacking contexts, so multiply needs a backdrop inside them */
+        .reveal .slides section {
+            background-color: var(--r-background-color);
+        }
         .sketch {
             mix-blend-mode: multiply;
-            background: transparent;
         }
     </style>
 
